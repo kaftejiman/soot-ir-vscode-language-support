@@ -1,4 +1,4 @@
-# soot-ir README
+# Soot IR
 
 Syntactic and Semantic support for [Soot Intermediate Representation](https://github.com/soot-oss/soot) files for Visual Studio Code.
 
@@ -7,4 +7,4 @@ Syntactic and Semantic support for [Soot Intermediate Representation](https://gi
 ## Preview
 
 
-[Jimple](images/sootIR_jimple_syntax.png)
+![Jimple](https://raw.githubusercontent.com/kaftejiman/soot-ir-vscode-language-support/main/images/sootIR_jimple_syntax.png)
