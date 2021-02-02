@@ -473,7 +473,11 @@
         {
           "match": "\\bwith\\b",
           "name": "keyword.control.catch.jimple"
-        }
+        },
+        {
+          "match": "\\$[a-z0-9]{1,3}",
+          "name": "constant.language.jimple"
+        }        
       ]
     },
     "enums": {
@@ -613,7 +617,26 @@
                           "include": "#class-body"
                         }
                       ]
-                    }
+                    },
+                    {
+                      "begin": "<",
+                      "beginCaptures": {
+                        "0": {
+                          "name": "punctuation.bracket.lt.jimple"
+                        }
+                      },
+                      "end": ">",
+                      "endCaptures": {
+                        "0": {
+                          "name": "punctuation.bracket.gt.jimple"
+                        }
+                      },
+                      "patterns": [
+                        {
+                          "include": "#class-body"
+                        }
+                      ]
+                    }                    
                   ]
                 }
               ]
@@ -667,7 +690,7 @@
           "name": "storage.modifier.$1.jimple"
         },
         {
-          "match": "(?<!\\.)([a-zA-Z$_][a-zA-Z0-9$_]*)(?=\\s*<)",
+          "match": "(?<!\\.)([a-zA-Z\\$_][a-zA-Z0-9$_]*)(?=\\s*<)",
           "captures": {
             "1": {
               "name": "storage.type.jimple"
@@ -833,7 +856,7 @@
       ]
     },
     "methods": {
-      "begin": "(?!new)(?=[\\w<].*\\s+)(?=([^=/]|/(?!/))+\\()",
+      "begin": "(?!new)(?=[\\w<].*\\s+)(?=([^=/]|/(?!/))+\\()(.*)",
       "end": "(})|(?=;)",
       "endCaptures": {
         "1": {
@@ -942,12 +965,12 @@
           "include": "#generics"
         },
         {
-          "begin": "\\b((?:[A-Za-z_]\\w*\\s*\\.\\s*)*)([A-Z_]\\w*)\\s*(?=\\[)",
+          "begin": "\\b((?:[A-Za-z_\\$]\\w*\\s*\\.\\s*)*)([A-Z_]\\w*)\\s*(?=\\[)",
           "beginCaptures": {
             "1": {
               "patterns": [
                 {
-                  "match": "[A-Za-z_]\\w*",
+                  "match": "[A-Za-z_\\$]\\w*",
                   "name": "storage.type.jimple"
                 },
                 {
@@ -971,12 +994,12 @@
           ]
         },
         {
-          "match": "\\b((?:[A-Za-z_]\\w*\\s*\\.\\s*)*[A-Z_]\\w*)\\s*(?=<)",
+          "match": "\\b((?:[A-Za-z_$]\\w*\\s*\\.\\s*)*[A-Z_]\\w*)\\s*(?=<)",
           "captures": {
             "1": {
               "patterns": [
                 {
-                  "match": "[A-Za-z_]\\w*",
+                  "match": "[A-Za-z_\\$]\\w*",
                   "name": "storage.type.jimple"
                 },
                 {
@@ -1139,7 +1162,7 @@
     "properties": {
       "patterns": [
         {
-          "match": "(\\.)\\s*([a-zA-Z_$][\\w$]*)(?=\\s*\\.\\s*[a-zA-Z_$][\\w$]*)",
+          "match": "(<)*\\s*([a-zA-Z_$][\\w$]*)(?=\\s*\\.\\s*[a-zA-Z_$][\\w$]*)",
           "captures": {
             "1": {
               "name": "punctuation.separator.period.jimple"

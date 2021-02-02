@@ -2,7 +2,7 @@
     "name": "soot-ir",
     "displayName": "Soot IR",
     "description": "Support for Soot IR syntax",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "engines": {
         "vscode": "^1.52.0"
     },
